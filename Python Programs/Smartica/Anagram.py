@@ -3,18 +3,15 @@
 # Input 2: the second string
 # Output Specification:
 # Return "Yes" if they are anaagrams, else return "No"
-# Don't use any inbuilt functions such as sort, sorted, etc.
+# Don't use any inbuilt functions
 
 def isAnagram(s1, s2):
     if len(s1) != len(s2):
         return "No"
-    count1 = [0] * 256
-    count2 = [0] * 256
+    s1 = sorted(s1)
+    s2 = sorted(s2)
     for i in range(len(s1)):
-        count1[ord(s1[i])] += 1
-        count2[ord(s2[i])] += 1
-    for i in range(256):
-        if count1[i] != count2[i]:
+        if s1[i] != s2[i]:
             return "No"
     return "Yes"
 
